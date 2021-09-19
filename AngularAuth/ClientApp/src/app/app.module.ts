@@ -1,3 +1,4 @@
+import { MyGallery } from './Models/MyGallery';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -13,6 +14,9 @@ import { ApiAuthorizationModule } from 'src/api-authorization/api-authorization.
 import { AuthorizeGuard } from 'src/api-authorization/authorize.guard';
 import { AuthorizeInterceptor } from 'src/api-authorization/authorize.interceptor';
 import { DemoComponent } from '../../demo/demo.component';
+import { MetAppComponent } from './met-app/met-app.component';
+import { MyGalleryComponent } from './my-gallery/my-gallery.component';
+import { DepartmentSuggestionComponent } from './department-suggestion/department-suggestion.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +25,10 @@ import { DemoComponent } from '../../demo/demo.component';
     HomeComponent,
     CounterComponent,
     FetchDataComponent,
-    DemoComponent
+    DemoComponent,
+    MetAppComponent,
+    MyGalleryComponent,
+    DepartmentSuggestionComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -32,7 +39,10 @@ import { DemoComponent } from '../../demo/demo.component';
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] },
-      {path: 'demo', component: DemoComponent, canActivate:[AuthorizeGuard]}
+      {path: 'demo', component: DemoComponent, canActivate:[AuthorizeGuard]},
+      {path: 'myGallery', component: MyGalleryComponent },
+      {path: 'mysuggestion', component: DepartmentSuggestionComponent},
+      {path: 'metapp', component: MetAppComponent}
     ])
   ],
   providers: [
